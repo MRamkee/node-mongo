@@ -34,7 +34,7 @@ Technologies Used : Node, React, Express, Canvas JS & MongoDB
 7. Now go to http://localhost:3000/
 
 
-<h3>prerequisities</h3>
+<h3>Prerequisities</h3>
 
 1. Install Node
 
