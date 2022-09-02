@@ -20,17 +20,26 @@ Technologies Used : Node, React, Express, Canvas JS & MongoDB
 <h3> How to install ? </h3>
 
 1. Clone this repo 
+
 2. do ```npm install```
+
 3. then go to ```client``` folder
+
 4. run npm install & npm start
+
 5. next go to ```server``` folder
+
 6. then ruin ```node server.js```
+
 7. Now go to http://localhost:3000/
 
 
 <h3>prerequisities</h3>
+
 1. Install Node
+
 2. You should create Atlas Mongo DB account (Create a DB called "test" and collection name can be "my_collection")
+
 3. Copy your Mongo DB authentication url to server.
 
  
