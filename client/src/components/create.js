@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
 
 import "../styles.css";
 import { Graph } from "./graph";
@@ -11,10 +10,11 @@ export default function Create() {
     age: "",
     gender: ""
   });
-  const navigate = useNavigate();
+
   const [records, setRecords] = useState([]);
   const [graphData, setGraphData] = useState([]);
   const [genderInfo, setGenderInfo] = useState("");
+  const [submitAction, setSubmitAction] = useState(0);
   const GENDERS = ["male", "female"];
 
   // These methods will update the state properties.
@@ -42,12 +42,12 @@ export default function Create() {
         },
         body: JSON.stringify(newPerson)
       }).catch((error) => {
-        window.alert(error);
         return;
       });
 
       setForm({ name: "", age: "", gender: "" });
-      window.document.reload();
+      setSubmitAction(submitAction + 1);
+      window.location.reload();
     }, 2000);
   }
 
@@ -55,7 +55,7 @@ export default function Create() {
     getRecords();
 
     return;
-  }, []);
+  }, [setSubmitAction]);
 
   function getGender(givenName) {
     return fetch(`https://api.genderize.io/?name=${givenName}`)
@@ -124,7 +124,7 @@ export default function Create() {
             marginTop: "10px"
           }}
         >
-          <h3>Create New Person</h3>
+          <h3>Add New Person</h3>
           <form onSubmit={onSubmit}>
             <div className="form-group" style={{ marginTop: "5px" }}>
               <label htmlFor="name">Name</label>
@@ -139,7 +139,7 @@ export default function Create() {
             <div className="form-group" style={{ marginTop: "5px" }}>
               <label htmlFor="age">Age</label>
               <input
-                type="text"
+                type="number"
                 className="form-control"
                 id="age"
                 value={form.age}
@@ -149,7 +149,7 @@ export default function Create() {
             <div className="form-group" style={{ marginTop: "20px" }}>
               <input
                 type="submit"
-                value="Create person"
+                value="Add person"
                 className="btn btn-primary"
               />
             </div>
@@ -163,7 +163,7 @@ export default function Create() {
           {graphData && <Graph options={graphOptions} />}
         </div>
         <div className="box1">
-          {records?.length > 0 && <RecordList resultantRecords={records} />}
+          {records?.length && <RecordList resultantRecords={records} />}
         </div>
       </div>
     </div>

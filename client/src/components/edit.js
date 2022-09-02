@@ -50,7 +50,7 @@ export default function Edit() {
     e.preventDefault();
     const editedPerson = {
       name: form.name,
-      position: form.position,
+      age: form.age,
       gender: form.gender
     };
 
@@ -68,31 +68,32 @@ export default function Edit() {
 
   // This following section will display the form that takes input from the user to update the data.
   return (
-    <div>
-      <h3>Update Record</h3>
+    <div style={{ marginTop: "10px" }} class="box">
       <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            value={form.name}
-            onChange={(e) => updateForm({ name: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="age">Age: </label>
-          <input
-            type="text"
-            className="form-control"
-            id="age"
-            value={form.age}
-            onChange={(e) => updateForm({ age: e.target.value })}
-          />
-        </div>
-        <div className="form-group">
-          {/* <div className="form-check form-check-inline">
+        <div>
+          <h3>Update Person Info</h3>
+          <div className="form-group" style={{ marginTop: "5px" }}>
+            <label htmlFor="name">Name: </label>
+            <input
+              type="text"
+              className="form-control"
+              id="name"
+              value={form.name}
+              onChange={(e) => updateForm({ name: e.target.value })}
+            />
+          </div>
+          <div className="form-group" style={{ marginTop: "5px" }}>
+            <label htmlFor="age">Age: </label>
+            <input
+              type="text"
+              className="form-control"
+              id="age"
+              value={form.age}
+              onChange={(e) => updateForm({ age: e.target.value })}
+            />
+          </div>
+          <div className="form-group" style={{ marginTop: "5px" }}>
+            {/* <div className="form-check form-check-inline">
             <input
               className="form-check-input"
               type="radio"
@@ -106,43 +107,46 @@ export default function Edit() {
               Intern
             </label>
           </div> */}
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="positionOptions"
-              id="positionJunior"
-              value="male"
-              checked={form.gender === "male"}
-              onChange={(e) => updateForm({ gender: e.target.value })}
-            />
-            <label htmlFor="positionJunior" className="form-check-label">
-              male
-            </label>
+            <div
+              className="form-check form-check-inline"
+              style={{ marginTop: "5px" }}
+            >
+              <input
+                className="form-check-input"
+                type="radio"
+                name="positionOptions"
+                id="positionJunior"
+                value="male"
+                checked={form.gender === "male"}
+                onChange={(e) => updateForm({ gender: e.target.value })}
+              />
+              <label htmlFor="positionJunior" className="form-check-label">
+                male
+              </label>
+            </div>
+            <div
+              className="form-check form-check-inline"
+              style={{ marginTop: "5px" }}
+            >
+              <input
+                className="form-check-input"
+                type="radio"
+                name="positionOptions"
+                id="positionSenior"
+                value="female"
+                checked={form.gender === "female"}
+                onChange={(e) => updateForm({ gender: e.target.value })}
+              />
+              <label htmlFor="positionSenior" className="form-check-label">
+                female
+              </label>
+            </div>
           </div>
-          <div className="form-check form-check-inline">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="positionOptions"
-              id="positionSenior"
-              value="female"
-              checked={form.gender === "female"}
-              onChange={(e) => updateForm({ gender: e.target.value })}
-            />
-            <label htmlFor="positionSenior" className="form-check-label">
-              female
-            </label>
-          </div>
-        </div>
-        <br />
+          <br />
 
-        <div className="form-group">
-          <input
-            type="submit"
-            value="Update Record"
-            className="btn btn-primary"
-          />
+          <div className="form-group">
+            <input type="submit" value="Update" className="btn btn-primary" />
+          </div>
         </div>
       </form>
     </div>

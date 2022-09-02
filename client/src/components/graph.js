@@ -3,7 +3,6 @@ import React from "react";
 import CanvasJSReact from "../canvasjs.react";
 
 export const Graph = ({ options }) => {
-  const CanvasJS = CanvasJSReact.CanvasJS;
   const CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
   return (
